@@ -56,10 +56,13 @@ export default function RoleExplorer() {
         </p>
       </header>
 
-      <div className="mt-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-        <FilterBar active={department} counts={counts} onChange={setDepartment} />
+      {/* Control Bar: Filter Pills sejajar dengan Search Bar */}
+      <div className="mt-8 flex flex-col gap-3.5 md:flex-row md:items-center md:justify-between">
+        <div className="min-w-0 flex-1 overflow-hidden">
+          <FilterBar active={department} counts={counts} onChange={setDepartment} />
+        </div>
 
-        <div className="relative w-full lg:max-w-xs">
+        <div className="relative w-full md:w-60 lg:w-72 shrink-0">
           <label htmlFor="role-search" className="sr-only">
             Cari posisi atau skill
           </label>
@@ -85,7 +88,7 @@ export default function RoleExplorer() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Cari posisi atau skill..."
-            className="w-full rounded-xl border border-slate-300 bg-white py-2.5 pl-10 pr-9 text-sm text-slate-900 placeholder:text-slate-400 shadow-2xs transition-all duration-200 hover:border-slate-400 focus:border-indigo-600 focus:ring-3 focus:ring-indigo-100 focus-visible:outline-hidden"
+            className="h-10 w-full rounded-full border border-slate-300/90 bg-white pl-9 pr-9 text-sm text-slate-900 placeholder:text-slate-400 shadow-2xs transition-all duration-200 hover:border-slate-400 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100 focus-visible:outline-hidden"
           />
           {query && (
             <button
