@@ -3,8 +3,8 @@
 Mini assignment Front-End Engineer, Sekolah Karir Batch 2.
 Komponen responsif untuk menelusuri lowongan berdasarkan department.
 
-- Demo: `<isi link demo kalau sudah deploy>`
-- Repo: `<isi link repo>`
+- Demo: ``
+- Repo: `https://github.com/eridaylm/EridayalmaZahraYohar_Front-End-Engineer`
 
 Stack: React 18, TypeScript, Tailwind CSS v4, Vite. Tanpa backend, data mock hardcoded.
 
