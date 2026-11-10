@@ -16,75 +16,97 @@ body {
   display: none;
 }
 
-/* Animasi pergantian container */
-@keyframes grid-in {
+/* Transisi halus container */
+@keyframes fade-container {
   from {
     opacity: 0;
-    transform: translateY(8px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
-.grid-in {
-  animation: grid-in 260ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.fade-container {
+  animation: fade-container 200ms ease-out forwards;
 }
 
-/* Animasi bertingkat (staggered) untuk kartu pekerjaan */
-@keyframes card-in {
+/* Animasi bertingkat (staggered) kartu pekerjaan dengan subtle scale & micro-blur */
+@keyframes card-smooth-in {
   from {
     opacity: 0;
-    transform: translateY(14px) scale(0.985);
+    transform: translateY(18px) scale(0.97);
+    filter: blur(3px);
   }
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+    filter: blur(0px);
   }
 }
 
 .card-stagger {
-  animation: card-in 340ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation: card-smooth-in 420ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  will-change: transform, opacity, filter;
+}
+
+/* Animasi pop halus saat angka counter berubah */
+@keyframes count-pop {
+  0% {
+    transform: scale(1.28);
+    color: rgb(79, 70, 229);
+  }
+  100% {
+    transform: scale(1);
+    color: rgb(15, 23, 42);
+  }
+}
+
+.animate-count-pop {
+  animation: count-pop 320ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Animasi Empty State */
 @keyframes empty-appear {
   from {
     opacity: 0;
-    transform: translateY(12px) scale(0.97);
+    transform: translateY(16px) scale(0.96);
+    filter: blur(2px);
   }
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+    filter: blur(0px);
   }
 }
 
 .empty-appear {
-  animation: empty-appear 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: empty-appear 380ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Animasi floating halus untuk ikon empty state */
+/* Animasi floating halus ikon empty state */
 @keyframes float-icon {
   0%, 100% {
-    transform: translateY(0);
+    transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-5px);
+    transform: translateY(-8px) rotate(-2deg);
   }
 }
 
 .animate-float {
-  animation: float-icon 3s ease-in-out infinite;
+  animation: float-icon 3.6s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* Respect user's motion preference */
 @media (prefers-reduced-motion: reduce) {
-  .grid-in,
+  .fade-container,
   .card-stagger,
   .empty-appear,
-  .animate-float {
+  .animate-float,
+  .animate-count-pop {
     animation: none !important;
+    filter: none !important;
   }
   * {
     transition-duration: 0.01ms !important;

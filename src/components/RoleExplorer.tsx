@@ -41,7 +41,7 @@ export default function RoleExplorer() {
   return (
     <section aria-labelledby="role-explorer-title" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       <header className="max-w-2xl">
-        <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50/80 px-3 py-1 text-xs font-semibold text-indigo-700 shadow-2xs">
+        <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50/80 px-3 py-1 text-xs font-semibold text-indigo-700 shadow-2xs transition-transform duration-300 hover:scale-102">
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-indigo-600" />
@@ -88,14 +88,14 @@ export default function RoleExplorer() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Cari posisi atau skill..."
-            className="h-10 w-full rounded-full border border-slate-300/90 bg-white pl-9 pr-9 text-sm text-slate-900 placeholder:text-slate-400 shadow-2xs transition-all duration-200 hover:border-slate-400 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100 focus-visible:outline-hidden"
+            className="h-10 w-full rounded-full border border-slate-300/90 bg-white pl-9 pr-9 text-sm text-slate-900 placeholder:text-slate-400 shadow-2xs transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-slate-400 focus:border-indigo-600 focus:ring-4 focus:ring-indigo-100/80 focus-visible:outline-hidden"
           />
           {query && (
             <button
               type="button"
               onClick={() => setQuery('')}
               aria-label="Hapus pencarian"
-              className="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 hover:text-slate-600 cursor-pointer"
+              className="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 hover:text-slate-700 transition-all duration-200 hover:scale-110 active:scale-90 hover:rotate-90 cursor-pointer"
             >
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -107,22 +107,26 @@ export default function RoleExplorer() {
 
       <div className="mt-6 flex items-center justify-between gap-4">
         <p aria-live="polite" className="text-sm font-medium text-slate-600">
-          Menampilkan <span className="font-semibold text-slate-900">{visible.length}</span> posisi
-          {department !== 'All' && <> di <span className="text-slate-900">{department}</span></>}
+          Menampilkan{' '}
+          <span key={visible.length} className="inline-block font-bold text-slate-900 animate-count-pop">
+            {visible.length}
+          </span>{' '}
+          posisi
+          {department !== 'All' && <> di <span className="font-semibold text-slate-900">{department}</span></>}
         </p>
         {isFiltered && visible.length > 0 && (
           <button
             type="button"
             onClick={reset}
-            className="inline-flex items-center gap-1.5 rounded-md text-sm font-semibold text-indigo-700 transition-colors hover:text-indigo-800 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="inline-flex items-center gap-1.5 rounded-md text-sm font-semibold text-indigo-700 transition-all duration-200 hover:text-indigo-800 hover:underline active:scale-95 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             <span>Reset filter</span>
           </button>
         )}
       </div>
 
-      {/* key membuat animasi fade jalan ulang tiap filter / pencarian berubah */}
-      <div key={`${department}|${query}`} className="grid-in mt-5">
+      {/* Container transisi halus */}
+      <div key={`${department}|${query}`} className="fade-container mt-5">
         {visible.length > 0 ? (
           <RoleGrid roles={visible} />
         ) : (
