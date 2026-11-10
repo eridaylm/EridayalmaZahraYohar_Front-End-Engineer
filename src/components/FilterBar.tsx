@@ -12,7 +12,7 @@ export default function FilterBar({ active, counts, onChange }: Props) {
     <div
       role="group"
       aria-label="Filter berdasarkan department"
-      className="no-scrollbar -mx-4 flex snap-x gap-2 overflow-x-auto px-4 py-1 sm:mx-0 sm:flex-wrap sm:px-0"
+      className="no-scrollbar flex snap-x gap-2 overflow-x-auto py-1 sm:flex-wrap"
     >
       {FILTERS.map((name) => {
         const isActive = name === active
