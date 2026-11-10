@@ -15,7 +15,7 @@ export default function App() {
               <span className="text-base font-bold tracking-tight text-slate-900">
                 Sekolah Karir
               </span>
-              <span className="hidden rounded-full bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-700 sm:inline-block">
+              <span className="hidden rounded-full bg-[#006EFF]/10 px-2 py-0.5 text-xs font-semibold text-[#006EFF] sm:inline-block">
                 Careers Hub
               </span>
             </div>

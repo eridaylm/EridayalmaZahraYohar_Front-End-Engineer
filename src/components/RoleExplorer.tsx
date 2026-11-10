@@ -41,10 +41,10 @@ export default function RoleExplorer() {
   return (
     <section aria-labelledby="role-explorer-title" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       <header className="max-w-2xl">
-        <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50/80 px-3 py-1 text-xs font-semibold text-indigo-700 shadow-2xs transition-transform duration-300 hover:scale-102">
+        <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#006EFF]/20 bg-[#006EFF]/10 px-3 py-1 text-xs font-semibold text-[#006EFF] shadow-2xs transition-transform duration-300 hover:scale-102">
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-indigo-600" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#006EFF] opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-[#006EFF]" />
           </span>
           Sekolah Karir Career Hub
         </div>
@@ -88,7 +88,7 @@ export default function RoleExplorer() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Cari posisi atau skill..."
-            className="h-10 w-full rounded-full border border-slate-300/90 bg-white pl-9 pr-9 text-sm text-slate-900 placeholder:text-slate-400 shadow-2xs transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-slate-400 focus:border-indigo-600 focus:ring-4 focus:ring-indigo-100/80 focus-visible:outline-hidden"
+            className="h-10 w-full rounded-full border border-slate-300/90 bg-white pl-9 pr-9 text-sm text-slate-900 placeholder:text-slate-400 shadow-2xs transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-slate-400 focus:border-[#006EFF] focus:ring-4 focus:ring-[#006EFF]/15 focus-visible:outline-hidden"
           />
           {query && (
             <button
@@ -118,7 +118,7 @@ export default function RoleExplorer() {
           <button
             type="button"
             onClick={reset}
-            className="inline-flex items-center gap-1.5 rounded-md text-sm font-semibold text-indigo-700 transition-all duration-200 hover:text-indigo-800 hover:underline active:scale-95 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="inline-flex items-center gap-1.5 rounded-md text-sm font-semibold text-[#006EFF] transition-all duration-200 hover:text-[#005ed9] hover:underline active:scale-95 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#006EFF]"
           >
             <span>Reset filter</span>
           </button>
