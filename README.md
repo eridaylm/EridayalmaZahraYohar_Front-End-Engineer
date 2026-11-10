@@ -3,7 +3,7 @@
 Mini assignment Front-End Engineer, Sekolah Karir Batch 2.
 Komponen responsif untuk menelusuri lowongan berdasarkan department.
 
-- Demo: ``
+- Demo: `https://eridayalma-zahra-yohar-front-end-engineer.vercel.app/`
 - Repo: `https://github.com/eridaylm/EridayalmaZahraYohar_Front-End-Engineer`
 
 Stack: React 18, TypeScript, Tailwind CSS v4, Vite. Tanpa backend, data mock hardcoded.
@@ -48,7 +48,7 @@ Tombol "Reset filter" mengembalikan department ke "All" dan mengosongkan pencari
 ## Keputusan desain
 
 - **State di satu tempat.** `RoleExplorer` memegang `department` dan `query`. Daftar hasil dihitung dengan `useMemo` dari dua nilai itu, jadi tidak ada state turunan yang bisa tidak sinkron. Komponen lain hanya menerima props.
-- **Tanpa library tambahan.** Transisi cukup dengan CSS (fade ringan pada grid, hover pada kartu). Animasi dimatikan kalau user memakai `prefers-reduced-motion`.
+- **Animasi dan micro-interaction halus.** Transisi dibuat dengan CSS murni (staggered card entry saat filter berganti, hover elevation, active scale pada tombol, dan floating icon pada empty state). Animasi otomatis dinonaktifkan jika pengguna mengaktifkan `prefers-reduced-motion`.
 - **Pencarian ditambahkan** sebagai jalur kedua menuju empty state, dan karena filter department saja terasa terbatas kalau role bertambah banyak.
 - **Jumlah di tiap pill** supaya user tahu department mana yang kosong sebelum mengkliknya.
 - **Tipe `Department` dibuat union literal**, jadi salah ketik nama department di data akan gagal saat `tsc`.
